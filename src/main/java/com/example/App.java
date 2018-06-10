@@ -1,6 +1,7 @@
 package com.example;
 
-import com.example.service.BankAccountService;
+import com.example.core.BankAccountService;
+import com.example.core.MoneyTransferService;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -17,10 +18,10 @@ public class App {
                 org.glassfish.jersey.servlet.ServletContainer.class, "/*");
         jerseyServlet.setInitOrder(0);
 
-        // Tells the Jersey Servlet which REST service/class to load.
+        // Tells the Jersey Servlet which REST core/class to load.
         jerseyServlet.setInitParameter(
                 "jersey.config.server.provider.classnames",
-                BankAccountService.class.getCanonicalName());
+                BankAccountService.class.getCanonicalName() + ";" + MoneyTransferService.class.getCanonicalName());
 
         try {
             jettyServer.start();
