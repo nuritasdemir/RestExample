@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.core.BankAccountService;
+import com.example.exception.GenericExceptionMapper;
 import com.example.core.MoneyTransferService;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -21,8 +22,9 @@ public class App {
         // Tells the Jersey Servlet which REST core/class to load.
         jerseyServlet.setInitParameter(
                 "jersey.config.server.provider.classnames",
-                BankAccountService.class.getCanonicalName() + ";" + MoneyTransferService.class.getCanonicalName());
-
+                BankAccountService.class.getCanonicalName() + ";" +
+                        MoneyTransferService.class.getCanonicalName() + ";" +
+                        GenericExceptionMapper.class.getCanonicalName());
         try {
             jettyServer.start();
             jettyServer.join();

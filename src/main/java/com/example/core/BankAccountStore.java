@@ -34,17 +34,19 @@ class BankAccountStore {
         if (sourceAccountId == destinationAccountId)
             return sourceAccount.getBalance();
 
+        BankAccount firstLock, secondLock;
+
         if (sourceAccountId < destinationAccountId) {
-            synchronized (sourceAccount) {
-                synchronized (destinationAccount) {
-                    return transfer(sourceAccount, destinationAccount, amount);
-                }
-            }
+            firstLock = sourceAccount;
+            secondLock = destinationAccount;
         } else {
-            synchronized (destinationAccount) {
-                synchronized (sourceAccount) {
-                    return transfer(sourceAccount, destinationAccount, amount);
-                }
+            firstLock = destinationAccount;
+            secondLock = sourceAccount;
+        }
+
+        synchronized (firstLock) {
+            synchronized (secondLock) {
+                return transfer(sourceAccount, destinationAccount, amount);
             }
         }
     }

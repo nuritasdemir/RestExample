@@ -1,0 +1,7 @@
+com/example/App.class
+com/example/core/BankAccount.class
+com/example/core/BankAccountStore.class
+com/example/core/BankAccountService.class
+com/example/core/MoneyTransferService.class
+com/example/api/MoneyTransferApi.class
+com/example/api/BankAccountApi.class
