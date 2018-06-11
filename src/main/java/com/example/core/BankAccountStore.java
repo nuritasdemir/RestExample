@@ -95,4 +95,12 @@ class BankAccountStore {
             return account.deposit(amount);
         }
     }
+
+    public boolean deleteAll() {
+        synchronized (nextAccountIdLock) {
+            nextAccountId = 1;
+            accounts.clear();
+        }
+        return true;
+    }
 }

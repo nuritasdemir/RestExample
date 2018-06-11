@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.core.BankAccountService;
+import com.example.core.TestService;
 import com.example.exception.GenericExceptionMapper;
 import com.example.core.MoneyTransferService;
 import org.eclipse.jetty.server.Server;
@@ -24,6 +25,7 @@ public class App {
                 "jersey.config.server.provider.classnames",
                 BankAccountService.class.getCanonicalName() + ";" +
                         MoneyTransferService.class.getCanonicalName() + ";" +
+                        TestService.class.getCanonicalName() + ";" +
                         GenericExceptionMapper.class.getCanonicalName());
         try {
             jettyServer.start();
