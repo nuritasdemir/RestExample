@@ -9,7 +9,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.NO_SESSIONS);
         context.setContextPath("/");
 
         Server jettyServer = new Server(8080);
