@@ -2,12 +2,9 @@ package com.example.core;
 
 import org.apache.commons.lang3.Validate;
 
-import java.util.Currency;
-
 class BankAccount {
     private final long userId;
     private final long accountId;
-    private final Currency currency;
     private long balance;
 
     //Max value of javascript integer
@@ -16,16 +13,6 @@ class BankAccount {
     protected BankAccount(long userId, long accountId) {
         this.userId = userId;
         this.accountId = accountId;
-        this.currency = null;
-        this.balance = 0;
-    }
-
-    protected BankAccount(long userId, long accountId, Currency currency) {
-        Validate.notNull(currency,"Currency must not be %s", (Currency)null);
-
-        this.userId = userId;
-        this.accountId = accountId;
-        this.currency = currency;
         this.balance = 0;
     }
 
@@ -51,10 +38,6 @@ class BankAccount {
 
     protected long getBalance() {
         return balance;
-    }
-
-    protected Currency getCurrency() {
-        return currency;
     }
 
     protected long getUserId() {
