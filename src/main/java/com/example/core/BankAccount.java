@@ -5,6 +5,7 @@ import org.apache.commons.lang3.Validate;
 class BankAccount {
     private final long userId;
     private final long accountId;
+    //Balance is kept as cents in long format.
     private long balance;
 
     //Max value of javascript integer
