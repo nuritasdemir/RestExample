@@ -1,11 +1,10 @@
 # RestExample
-Basic java rest api example with jersey and jetty
+Basic java rest api example with jersey and jetty.
 
-In order to test lock usage with parallel requests
+Api has been tested with JUnit. In order to test the lock usage with parallel requests following commands can be used on a suitable enviorenment like linux or mac with homebrew.
 
     openaccount() {
         curl -s -XPOST "http://localhost:8080/bank-account/open?userId=1"  > /dev/null
-
     }
     export -f openaccount
 
